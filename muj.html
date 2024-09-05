@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Health</title>
+    <link rel="stylesheet" href="muj.css">
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Glassmorphism Effect */
+        .card {
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly visible border */
+            backdrop-filter: blur(10px); /* Blur effect */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            /* Adjust card width */
+        }
+
+        /* Zoomed Card */
+        .card.zoomed {
+            transform: scale(1.1); /* Slight zoom effect */
+            z-index: 10; /* Ensure it stays above other cards */
+            backdrop-filter: blur(15px); /* Stronger blur effect */
+        }
+
+        /* Minimized Card */
+        .card.minimized {
+            transform: scale(0.9); /* Slightly shrink other cards */
+            opacity: 0.6; /* Make other cards less prominent */
+        }
+
+        /* Card Hover */
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h2 {
+            font-size: 22px;
+            color: #ffffff; /* White text for better contrast */
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #dcdcdc; /* Light grey text */
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Card Container */
+        .card-container {
+            display: grid; /* Use grid layout */
+            grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+            gap: 20px; /* Space between cards */
+            justify-content: center; /* Center the grid */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <!-- AgroGuard logo -->
+            <a href="#">
+                <img src="logo.jpg" alt="AgroGuard Logo" style="height: 50px;">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#diseases">Diseases</a></li>
+            <li><a href="#preventions">Preventions</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main id="home" class="container">
+        <h1>Crop Disease Prevention</h1>
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="icon">
+                </div>
+                <h2>Fungal Diseases</h2>
+                <p>"Protect Your Crops: Master the Fight Against Fungal Infections!"</p>
+                <a href="fungal.html" class="btn">Learn More</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <h2>Bacterial Diseases</h2>
+                <p>Understand bacterial infections and how to safeguard your crops.</p>
+                <a href="bacterial.html" class="btn">Learn More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <h2>Viral Diseases</h2>
+                <p>Discover ways to prevent the spread of viral diseases in plants.</p>
+                <a href="viral.html" class="btn">Learn More</a>
+            </div>
+            <!-- Card 4 -->
+            <div class="card">
+                <h2>Parasitic Plants</h2>
+                <p>Protect your crops from parasitic plants with our effective strategies.</p>
+                <a href="parasitic.html" class="btn">Learn More</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    cards.forEach(c => {
+                        c.classList.remove('zoomed');
+                        c.classList.add('minimized');
+                    });
+                    card.classList.remove('minimized');
+                    card.classList.add('zoomed');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
